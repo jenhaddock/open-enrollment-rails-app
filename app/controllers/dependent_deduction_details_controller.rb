@@ -1,0 +1,2 @@
+class DependentDeductionDetailsController < ApplicationController
+end

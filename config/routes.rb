@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dependent_deduction_details
   resources :deduction_details
   resources :dependents
   resources :deductions
