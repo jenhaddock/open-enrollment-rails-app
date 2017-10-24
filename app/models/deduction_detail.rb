@@ -1,0 +1,2 @@
+class DeductionDetail < ApplicationRecord
+end

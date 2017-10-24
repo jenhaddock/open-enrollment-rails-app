@@ -1,0 +1,2 @@
+module DeductionDetailsHelper
+end
