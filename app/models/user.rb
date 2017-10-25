@@ -14,5 +14,4 @@ class User < ApplicationRecord
     def default_values
       self.admin ||= false
     end
-
 end
