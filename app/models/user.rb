@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  validates :email, uniqueness: true
+
   has_many :dependents
 
   has_many :deduction_details
@@ -12,5 +14,5 @@ class User < ApplicationRecord
     def default_values
       self.admin ||= false
     end
-      
+
 end
