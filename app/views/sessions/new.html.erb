@@ -1,0 +1,10 @@
+<h1>Open Enrollement Sign In Form</h1>
+
+<%= form_tag signin_path do %>
+<%= label_tag 'Email:' %>
+<%= text_field_tag 'user[email]' %><br>
+<%= label_tag 'Password:' %>
+<%= text_field_tag 'user[password]' %>
+
+<%= submit_tag "Sign In" %>
+<% end %>
