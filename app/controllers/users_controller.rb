@@ -21,4 +21,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  def require_login
+    redirect_to '/' unless session.include? :user_id
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :salary, :admin)
+  end
 end
