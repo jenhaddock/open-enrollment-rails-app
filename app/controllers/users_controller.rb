@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user)
   end
 
   def require_login
