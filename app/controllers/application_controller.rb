@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     @user.deduction_details.each.do |ded_det|
       @deduction = Deduction.find(ded_det.deduction_id)
       if @deduction.is_percentage?
-        total = total + (@user.salary * @deduction.amount * 0.01)
+        total = total + (@user.salary * ded_det.percentage * 0.01)
       else
         total = total + @deduction.amount
       end
