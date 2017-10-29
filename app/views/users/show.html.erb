@@ -13,3 +13,9 @@
   </ul>
 
 <h3> Dependents </h3>
+  <ul>
+      <% @user.dependents.each do |dependent| %>
+      <li><%= dependent.name %> | <%= dependent.relation %></li>
+  </ul>
+
+<p>Total Deductions: <%= total_deductions(@user) %></p>
