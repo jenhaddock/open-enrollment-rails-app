@@ -16,6 +16,12 @@
   <ul>
       <% @user.dependents.each do |dependent| %>
       <li><%= dependent.name %> | <%= dependent.relation %></li>
+        <% dependent.dependent_deduction_details.each do |ddd| %>
+        <ol>
+          <%= ddd.deduction.name %> | <%= ddd.deduction.amount %>
+        </ol>
+        <% end %>
+      <% end %>
   </ul>
 
 <p>Total Deductions: <%= total_deductions(@user) %></p>
