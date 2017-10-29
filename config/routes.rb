@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
-  #root to: 'users#homepage'
+  root to: 'users#homepage'
   resources :users
 
   get '/signin' => 'sessions#new'
