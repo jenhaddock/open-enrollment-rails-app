@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root to: 'users#homepage'
   resources :users
 
-  #get '/sign_in' => 'sessions#new'
-  #post '/sign_in' => 'sessions#create'
+  get '/signin' => 'sessions#new'
+  post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
+  get '/signup' => 'sessions#new'
+  post '/signup' => 'sessions#create'
 
   resources :dependent_deduction_details
   resources :deduction_details

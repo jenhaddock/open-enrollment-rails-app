@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def homepage
   end
 
-  def sign_in
+  def new
     @user = User.new
   end
 
