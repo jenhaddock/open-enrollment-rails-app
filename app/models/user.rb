@@ -26,10 +26,10 @@ class User < ApplicationRecord
           total = total + @deduction.amount
         end
       end
-      @user.dependents.each do |dependent|
-        dependent.dependent_deduction_details.each do |dep_ded_det|
-          @deduction = Deduction.find(dep_ded_det.deduction_id)
-          total = total + @deduction.amount
-      end
-    end
+    #  @user.dependents.each do |dependent|
+      #  dependent.dependent_deduction_details.each do |dep_ded_det|
+        #  @deduction = Deduction.find(dep_ded_det.deduction_id)
+      #    total = total + @deduction.amount
+      #end
+  #  end
 end

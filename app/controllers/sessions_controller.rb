@@ -3,9 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    ## revist 
-    if params[:user][:password].nil?
-      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+    if auth['uid']
+      @user = User.find_or_create_by(id: auth['uid']) do |u|
         u.email = auth['info']['email']
       end
       session[:user_id] = @user.id
