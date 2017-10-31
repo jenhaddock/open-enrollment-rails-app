@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    -- revist 
+    ## revist 
     if params[:user][:password].nil?
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.email = auth['info']['email']
