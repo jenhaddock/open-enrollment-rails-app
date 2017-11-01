@@ -4,7 +4,9 @@
 
 <%= form_for @user do |f| %>
   <input type="hidden" name="setup_complete" value="true"/>
-  Salary: <%= f.text_field :salary %>
+  First Name: <%= f.text_field :first_name %><br>
+  Last Name: <%= f.text_field :last_name %><br>
+  Salary: <%= f.text_field :salary %><br>
 
   <%= f.fields_for :dependents do |d| %>
     <%= d.label :name %>
