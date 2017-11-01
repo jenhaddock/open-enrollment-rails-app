@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.setup_complete = true
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
@@ -39,6 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :salary, :admin)
+    params.require(:user).permit(:email, :password, :salary, :admin, :setup_complete)
   end
 end

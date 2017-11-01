@@ -3,6 +3,7 @@
 <% end %>
 
 <%= form_for @user do |f| %>
+  <input type="hidden" name="setup_complete" value="true"/>
   Salary: <%= f.text_field :salary %>
 
   <%= f.fields_for :dependents do |d| %>
