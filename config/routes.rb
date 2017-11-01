@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/signup' => 'sessions#new'
   post '/signup' => 'sessions#create'
 
-  resources :dependent_deduction_details
   resources :deduction_details
   resources :dependents
   resources :deductions
