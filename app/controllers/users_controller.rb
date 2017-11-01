@@ -29,6 +29,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(current_user)
+    if !@user.setup_complete?
+      redirect_to new_user_path
+    end
   end
 
   def require_login

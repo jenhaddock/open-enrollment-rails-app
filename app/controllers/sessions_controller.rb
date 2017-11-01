@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     if @user.setup_complete?
       redirect_to user_path(@user)
     else
-      redirect_to user_new(@user)
+      redirect_to new_user_path(@user)
     end
   end
 
