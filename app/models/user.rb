@@ -13,6 +13,7 @@ class User < ApplicationRecord
   private
     def default_values
       self.admin ||= false
+      self.setup_complete ||= false
     end
 
     def total_deductions(user)
