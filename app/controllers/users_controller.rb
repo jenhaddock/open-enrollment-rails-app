@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.dependents.build
+    @user.dependents.build
+    @user.dependents.build
+    @user.dependents.build
   end
 
   def index
