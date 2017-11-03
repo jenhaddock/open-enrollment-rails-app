@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build
+    @deductions = Deduction.all
   end
 
   def index

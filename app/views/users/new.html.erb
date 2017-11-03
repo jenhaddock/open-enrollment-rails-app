@@ -24,6 +24,12 @@
     <% end %>
   </div>
 
+  <h3> Deductions </h3>
+
+  <div class="field">
+    <%= f.collection_check_boxes :deduction_ids, @deductions, :id, :name %><br>
+  </div>
+
   <br>
   <%= f.submit %>
 <% end %>
