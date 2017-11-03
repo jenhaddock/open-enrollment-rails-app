@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#name | is_percentage | is_flat | amount
+Deduction.create(name: "Health Insurance", is_percentage: false, is_flat: true, amount: 47.50)
+Deduction.create(name: "Dental Insurance", is_percentage: false, is_flat: true, amount: 12.75)
+Deduction.create(name: "Eye Insurance", is_percentage: false, is_flat: true, amount: 15.00)
+Deduction.create(name: "Flex Health Plan", is_percentage: true, is_flat: false, amount: nil)
+Deduction.create(name: "401k", is_percentage: true, is_flat: false, amount: nil)
+Deduction.create(name: "Stock Options", is_percentage: true, is_flat: false, amount:nil)
