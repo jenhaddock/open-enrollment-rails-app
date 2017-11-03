@@ -23,7 +23,7 @@ Specs:
 
  Include logout (how e.g. Devise)
 
- Include third party signup/login (how e.g. Devise/OmniAuth)
+ [x] Include third party signup/login (how e.g. Devise/OmniAuth) (Facebook)
 
  Include nested resource show or index (URL e.g. users/2/recipes)
 

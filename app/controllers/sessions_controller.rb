@@ -4,9 +4,13 @@ class SessionsController < ApplicationController
 
   def create
     if auth['uid']
-      @user = User.find_or_create_by(id: auth['uid']) do |u|
-        u.email = auth['info']['email']
+      @user = User.find_or_create_by(id: auth['uid'],
+                                     email: auth['email']) do |u|
+      #  u.email = auth['info']['email']
+        u.first_name = auth['info']['name'].split(' ')[0]
+        u.last_name = auth['info']['name'].split(' ')[1]
       end
+      @user.save
       load_user_page
     else
       if !@user.nil? && @user.authenticate(params[:user][:password])
@@ -19,6 +23,7 @@ class SessionsController < ApplicationController
 
   def load_user_page
     session[:user_id] = @user.id
+          binding.pry
     if @user.setup_complete?
       redirect_to user_path(@user)
     else

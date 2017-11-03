@@ -26,6 +26,6 @@ class User < ApplicationRecord
         else
           total = total + @deduction.amount
         end
-      end
+    #  end
     end
 end
