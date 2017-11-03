@@ -5,20 +5,24 @@
 <h3>User Setup</h3>
 
 <%= form_for @user do |f| %>
-  <input type="hidden" name="setup_complete" value="true"/>
-  First Name: <%= f.text_field :first_name %><br>
-  Last Name: <%= f.text_field :last_name %><br>
-  Salary: <%= f.text_field :salary %><br>
+  <div class="field">
+    <input type="hidden" name="setup_complete" value="true"/>
+    First Name: <%= f.text_field :first_name %><br>
+    Last Name: <%= f.text_field :last_name %><br>
+    Salary: <%= f.text_field :salary %><br>
+  </div>
 
   <br><h3> Dependents </h3>
 
-  <%= f.fields_for :dependents do |d| %>
-    <%= d.label :name %>
-    <%= d.text_field :name %><br>
+  <div class="field">
+    <%= f.fields_for :dependents do |d| %>
+      <%= d.label :name %>
+      <%= d.text_field :name %><br>
 
-    <%= d.label :relation %>
-    <%= d.text_field :relation %><br>
-  <% end %>
+      <%= d.label :relation %>
+      <%= d.text_field :relation %><br>
+    <% end %>
+  </div>
 
   <br>
   <%= f.submit %>

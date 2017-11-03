@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :dependents
+  accepts_nested_attributes_for :dependents, reject_if: proc { |attributes| attributes['name'].blank? }
 
   has_many :deduction_details
   has_many :deductions, through: :deduction_details
