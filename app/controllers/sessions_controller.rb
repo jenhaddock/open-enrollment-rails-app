@@ -23,7 +23,6 @@ class SessionsController < ApplicationController
 
   def load_user_page
     session[:user_id] = @user.id
-          binding.pry
     if @user.setup_complete?
       redirect_to user_path(@user)
     else

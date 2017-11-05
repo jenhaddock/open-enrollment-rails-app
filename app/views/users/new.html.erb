@@ -26,8 +26,23 @@
 
   <h3> Deductions </h3>
 
-  <div class="field">
-    <%= f.collection_check_boxes :deduction_ids, @deductions, :id, :name %><br>
+  <div>
+    <% Deduction.all.each do |deduction| %>
+    <label>
+      <%= check_box_tag "user[deduction_ids][]", deduction.id, f.object.deductions.include?(deduction) %>
+      <%= deduction.name %>
+      <%= fields_for :deduction_details do |deduction_detail| %>
+        <% if deduction.is_percentage? %>
+          <%= deduction_detail.text_field :percentage %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <br>
+  <div>
+    <%= f.check_box :admin %>
+    <%= f.label :admin %>
   </div>
 
   <br>
