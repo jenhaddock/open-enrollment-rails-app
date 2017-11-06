@@ -4,12 +4,13 @@ class SessionsController < ApplicationController
 
   def create
     if auth['uid']
-      @user = User.find_or_create_by(id: auth['uid'],
-                                     email: auth['email']) do |u|
+      @user = User.find_or_create_by(email: auth['info']['email']) do |u|
       #  u.email = auth['info']['email']
+        u.password = SecureRandom.random_bytes(4)
         u.first_name = auth['info']['name'].split(' ')[0]
         u.last_name = auth['info']['name'].split(' ')[1]
       end
+      binding.pry
       @user.save
       load_user_page
     else
