@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.find(current_user.id)
+  #  @user = User.new
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build

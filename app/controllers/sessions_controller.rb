@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
         u.first_name = auth['info']['name'].split(' ')[0]
         u.last_name = auth['info']['name'].split(' ')[1]
       end
-      binding.pry
       @user.save
       load_user_page
     else
