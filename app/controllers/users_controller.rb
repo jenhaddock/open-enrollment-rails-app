@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.find(current_user.id)
-  #  @user = User.new
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build
@@ -47,6 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :salary, :admin, :setup_complete, :dependents_attributes => [:name, :relation])
+    params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete,
+                                 :dependents_attributes => [:name, :relation])
   end
 end

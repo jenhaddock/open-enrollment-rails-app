@@ -1,5 +1,11 @@
 <h1>Open Enrollement Sign In Form</h1>
 
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <%= form_tag signin_path do %>
 <%= label_tag 'Email:' %>
 <%= text_field_tag 'user[email]' %><br>

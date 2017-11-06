@@ -1,5 +1,7 @@
-<% if notice %>
-  <p><%= notice %></p>
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
 <% end %>
 
 <h3>User Setup</h3>

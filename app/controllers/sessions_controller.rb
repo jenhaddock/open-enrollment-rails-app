@@ -3,9 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if auth['uid']
+    if !auth.nil?
       @user = User.find_or_create_by(email: auth['info']['email']) do |u|
-      #  u.email = auth['info']['email']
         u.password = SecureRandom.random_bytes(4)
         u.first_name = auth['info']['name'].split(' ')[0]
         u.last_name = auth['info']['name'].split(' ')[1]
@@ -13,10 +12,15 @@ class SessionsController < ApplicationController
       @user.save
       load_user_page
     else
-      if !@user.nil? && @user.authenticate(params[:user][:password])
-        load_user_page
+      @user = User.find_by(email: params[:user][:email])
+      if !@user.nil?
+        if @user.authenticate(params[:user][:password])
+          load_user_page
+        else
+          redirect_to '/signin', notice: "Invalid Password"
+        end
       else
-        redirect_to 'signin'
+        redirect_to '/signin', notice: "Must enter email address"
       end
     end
   end
@@ -41,5 +45,9 @@ class SessionsController < ApplicationController
 
   def auth
     request.env['omniauth.auth']
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password)
   end
 end
