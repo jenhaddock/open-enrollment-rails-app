@@ -1,6 +1,6 @@
 <nav class="">
     <% if current_user %>
-      <p Signed in as <%= current_user.email %></p> | <a href="/signout">Sign Out</a>
+      Signed in as <%= current_user.email %> | <a href="/signout">Sign Out</a>
     <% else %>
       <a href="/signin">Sign In</a> | <a href="/signup">Sign Up</a> | <%= link_to('Log in with Facebook', '/auth/facebook') %>
     <% end %>
