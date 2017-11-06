@@ -12,15 +12,18 @@ class SessionsController < ApplicationController
       @user.save
       load_user_page
     else
-      @user = User.find_by(email: params[:user][:email])
-      if !@user.nil?
-        if @user.authenticate(params[:user][:password])
-          load_user_page
-        else
-          redirect_to '/signin', notice: "Invalid Password"
-        end
+      if (params[:user][:email]).empty? || (params[:user][:password]).empty?
+        redirect_to '/signin', notice: "Both fields are required" and return
       else
-        redirect_to '/signin', notice: "Must enter email address"
+        @user = User.find_by(email: params[:user][:email])
+        if @user.nil?
+          @user = User.create(user_params)
+        else
+          if !@user.authenticate(params[:user][:password])
+            redirect_to '/signin', notice: "Invalid Password" and return
+          end
+        end
+        load_user_page
       end
     end
   end
@@ -30,7 +33,7 @@ class SessionsController < ApplicationController
     if @user.setup_complete?
       redirect_to user_path(@user)
     else
-      redirect_to new_user_path(@user)
+      redirect_to new_user_path
     end
   end
 
