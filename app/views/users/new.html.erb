@@ -8,7 +8,7 @@
 
 <%= form_for @user do |f| %>
   <div class="field">
-    <input type="hidden" name="setup_complete" value="true"/>
+    <input type="hidden" id="setup_complete" value="true"/>
     First Name: <%= f.text_field :first_name %><br>
     Last Name: <%= f.text_field :last_name %><br>
     Salary: <%= f.text_field :salary %><br>

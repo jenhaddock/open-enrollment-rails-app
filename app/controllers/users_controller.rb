@@ -1,7 +1,19 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:show, :index]
+  before_action :require_login, only: [:show, :index, :update]
 
   def homepage
+    if current_user
+      @user = User.find(current_user.id)
+      if @user.setup_complete?
+        render 'show'
+      else
+        @user.dependents.build
+        @user.dependents.build
+        @user.dependents.build
+        @user.dependents.build
+        render 'new'
+      end
+    end
   end
 
   def new
@@ -10,11 +22,10 @@ class UsersController < ApplicationController
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build
-    @deductions = Deduction.all
   end
 
   def index
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     if @user.is_admin?
       @users = Users.all
     else
@@ -22,7 +33,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
+  def update
+    binding.pry
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
@@ -47,6 +59,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete,
-                                 :dependents_attributes => [:name, :relation])
+                                 :dependents_attributes => [:name, :relation],
+                                 :deduction_ids => [])
   end
 end
