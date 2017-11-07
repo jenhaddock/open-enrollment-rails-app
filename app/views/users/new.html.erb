@@ -29,8 +29,8 @@
   <h3> Deductions </h3>
 
   <div>
-    <%= f.fields_for :deduction_details do |dd| %>
-      <% Deduction.all.each do |deduction| %>
+    <% Deduction.all.each do |deduction| %>
+      <%= f.fields_for :deduction_details do |dd| %>
         <%= dd.check_box :id %>
         <%= dd.label :id, deduction.name %>
         <% if deduction.is_percentage? %>

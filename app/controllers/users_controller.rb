@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         @user.dependents.build
         @user.dependents.build
         @user.dependents.build
+        @user.deduction_details.build
         render 'new'
       end
     end
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build
+    @user.deduction_details.build
   end
 
   def index

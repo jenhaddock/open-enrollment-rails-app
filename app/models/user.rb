@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :deduction_details
   has_many :deductions, through: :deduction_details
+  accepts_nested_attributes_for :deduction_details
 
   after_initialize :default_values
 
