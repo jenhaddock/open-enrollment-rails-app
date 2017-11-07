@@ -29,14 +29,14 @@
   <h3> Deductions </h3>
 
   <div>
-    <% Deduction.all.each do |deduction| %>
-    <label>
-      <%= check_box_tag "user[deduction_detail_ids][]", deduction.id, f.object.deductions.include?(deduction) %>
-      <%= deduction.name %>
-      <%= fields_for :deduction_details do |deduction_detail| %>
+    <%= f.fields_for :deduction_details do |dd| %>
+      <% Deduction.all.each do |deduction| %>
+        <%= dd.check_box :id %>
+        <%= dd.label :id, deduction.name %>
         <% if deduction.is_percentage? %>
-          <%= deduction_detail.text_field :percentage %>
-        <% end %>
+          <%= dd.label :percentage %>
+          <%= dd.text_field :percentage %>
+        <% end %><br>
       <% end %>
     <% end %>
   </div>
