@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         @user.dependents.build
         @user.dependents.build
         @user.dependents.build
+        Deduction.count.times (@user.deduction_details.build)
         render 'new'
       end
     end
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build
+    Deduction.count.times (@user.deduction_details.build)
   end
 
   def index
@@ -60,6 +62,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete,
                                  :dependents_attributes => [:name, :relation],
-                                 :deduction_ids => [])
+                                 :deduction_detail_ids => [])
   end
 end

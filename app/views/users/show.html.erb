@@ -2,7 +2,7 @@
 
 <h3> Deductions <h3>
   <ul>
-    <% @user.deductions_details.each do |deduction_detail| %>
+    <% @user.deduction_details.each do |deduction_detail| %>
     <li><% if deduction_detail.deduction.is_amount? %>
           <%= deduction_detail.deduction.name %> | <%= deduction_detail.deduction.amount %>
         <% else %>
@@ -19,4 +19,4 @@
       <% end %>
   </ul>
 
-<p>Total Deductions: <%= total_deductions(@user) %></p>
+<p>Total Deductions: </p>

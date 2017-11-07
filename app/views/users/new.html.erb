@@ -8,7 +8,7 @@
 
 <%= form_for @user do |f| %>
   <div class="field">
-    <input type="hidden" id="setup_complete" value="true"/>
+    <input id="hidden" type="hidden" name="setup_complete" value="true"/>
     First Name: <%= f.text_field :first_name %><br>
     Last Name: <%= f.text_field :last_name %><br>
     Salary: <%= f.text_field :salary %><br>
@@ -31,7 +31,7 @@
   <div>
     <% Deduction.all.each do |deduction| %>
     <label>
-      <%= check_box_tag "user[deduction_ids][]", deduction.id, f.object.deductions.include?(deduction) %>
+      <%= check_box_tag "user[deduction_detail_ids][]", deduction.id, f.object.deductions.include?(deduction) %>
       <%= deduction.name %>
       <%= fields_for :deduction_details do |deduction_detail| %>
         <% if deduction.is_percentage? %>
