@@ -7,11 +7,7 @@ class UsersController < ApplicationController
       if @user.setup_complete?
         render 'show'
       else
-        @user.dependents.build
-        @user.dependents.build
-        @user.dependents.build
-        @user.dependents.build
-        @user.deduction_details.build
+        init_new
         render 'new'
       end
     end
@@ -19,6 +15,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.find(current_user.id)
+    init_new
+  end
+
+  def init_new
     @user.dependents.build
     @user.dependents.build
     @user.dependents.build
@@ -62,6 +62,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete,
                                  :dependents_attributes => [:name, :relation],
-                                 :deduction_detail_ids => [])
+                                 :deduction_detail_ids => [:checked, :percentage])
   end
 end
