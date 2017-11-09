@@ -40,10 +40,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = User.new(user_params)
+    Deduction_details.where(:user_id => @user.id).delete_all
     if @user.save
-      session[:user_id] = @user.id
+      binding.pry
+      deduction_detail_attributes.each do |detail|
+        if detail.id == 1
+          deduction_detail.create(user_id => @user.id, deduction_id => detail.deduction_id, deduction_detail.percentage => detail.percentage)
+        end
+      end
       redirect_to user_path(@user)
     else
       redirect_to new_user_path
@@ -66,6 +71,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete,
                                  :dependents_attributes => [:name, :relation],
-                                 :deduction_detail_ids => [:checked, :percentage])
+                                 :deduction_detail_attributes => [:id, :percentage])
   end
 end
