@@ -12,6 +12,7 @@
     First Name: <%= f.text_field :first_name %><br>
     Last Name: <%= f.text_field :last_name %><br>
     Salary: <%= f.text_field :salary %><br>
+    Admin: <%= f.check_box :admin %><br>
   </div>
 
   <br><h3> Dependents </h3>
@@ -39,12 +40,6 @@
         <% end %><br>
       <% end %>
     <% end %>
-  </div>
-
-  <br>
-  <div>
-    <%= f.check_box :admin %>
-    <%= f.label :admin %>
   </div>
 
   <br>
