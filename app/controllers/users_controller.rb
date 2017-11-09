@@ -40,11 +40,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.new(user_params)
-    Deduction_details.where(:user_id => @user.id).delete_all
+    @user = User.find(current_user.id)
+    @user.update(user_params)
+    @user.deduction_details.delete_all
     if @user.save
-      binding.pry
-      deduction_detail_attributes.each do |detail|
+      params[:user][:deduction_details_attributes].each do |detail|
+        binding.pry
         if detail.id == 1
           deduction_detail.create(user_id => @user.id, deduction_id => detail.deduction_id, deduction_detail.percentage => detail.percentage)
         end

@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :first_name
       t.string :last_name
       t.boolean :admin
-      t.decimal :salary
+      t.integer :salary
       t.boolean :setup_complete
 
       t.timestamps

@@ -8,11 +8,11 @@
 
 <%= form_for @user do |f| %>
   <div class="field">
-    <input id="hidden" type="hidden" name="setup_complete" value="true"/>
     First Name: <%= f.text_field :first_name %><br>
     Last Name: <%= f.text_field :last_name %><br>
     Salary: <%= f.text_field :salary %><br>
     Admin: <%= f.check_box :admin %><br>
+    <input id="hidden" type="hidden" name="user[setup_complete]" value="true">
   </div>
 
   <br><h3> Dependents </h3>
