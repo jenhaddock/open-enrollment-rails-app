@@ -1,22 +1,23 @@
 <h1> <%= @user.first_name %> Yearly Deductions </h1>
 
-<h3> Deductions <h3>
-  <ul>
-    <% @user.deduction_details.each do |deduction_detail| %>
-    <li><% if deduction_detail.deduction.is_amount? %>
+<h3> Deductions </h3>
+<ul>
+  <% @user.deduction_details.each do |deduction_detail| %>
+     <li>
+       <% if deduction_detail.deduction.is_flat? %>
           <%= deduction_detail.deduction.name %> | <%= deduction_detail.deduction.amount %>
-        <% else %>
-          <%= deduction_detail.deduction.name %> | <%= deudction_detail.percentage %>%
+       <% else %>
+         <%= deduction_detail.deduction.name %> | <%= deduction_detail.percentage %>%
        <% end %>
      </li>
-    <% end%>
-  </ul>
+  <% end%>
+</ul>
 
 <h3> Dependents </h3>
-  <ul>
-      <% @user.dependents.each do |dependent| %>
-      <li><%= dependent.name %> | <%= dependent.relation %></li>
-      <% end %>
-  </ul>
+<ul>
+  <% @user.dependents.each do |dependent| %>
+    <li><%= dependent.name %> | <%= dependent.relation %></li>
+  <% end %>
+</ul>
 
-<p>Total Deductions: </p>
+<h4>Total Deductions: </h4>

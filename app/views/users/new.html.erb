@@ -30,10 +30,11 @@
   <h3> Deductions </h3>
 
   <div>
-    <% Deduction.all.each do |deduction| %>
+    <% Deduction.all.each_with_index do |deduction, index| %>
       <%= f.fields_for :deduction_details do |dd| %>
         <%= dd.check_box :id %>
         <%= dd.label :id, deduction.name %>
+        <input id="hidden" type="hidden" name="user[deduction_details_attributes][<%= index %>][deduction_id]" value="<%=deduction.id%>"/>
         <% if deduction.is_percentage? %>
           <%= dd.label :percentage %>
           <%= dd.text_field :percentage %>
