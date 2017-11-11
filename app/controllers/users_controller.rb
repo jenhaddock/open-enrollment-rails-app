@@ -14,12 +14,13 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.find(current_user.id)
-    if @user.setup_complete?
-      render 'show'
-    else
-      init_new
-    end
+    redirect_to 'homepage'
+  #  @user = User.find(current_user.id)
+  #  if @user.setup_complete?
+  #    render 'show'
+  #  else
+  #    init_new
+  #  end
   end
 
   def init_new
