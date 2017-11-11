@@ -30,12 +30,11 @@ class SessionsController < ApplicationController
 
   def load_user_page
     session[:user_id] = @user.id
-    redirect_to 'homepage'
-  #  if @user.setup_complete?
-  #    redirect_to user_path(@user)
-  #  else
-  #    redirect_to new_user_path
-  #  end
+    if @user.setup_complete?
+      redirect_to user_path(@user)
+    else
+      redirect_to new_user_path
+    end
   end
 
   def destroy
