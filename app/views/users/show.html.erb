@@ -5,7 +5,7 @@
   <% @user.deduction_details.each do |deduction_detail| %>
      <li>
        <% if deduction_detail.deduction.is_flat? %>
-          <%= deduction_detail.deduction.name %> | <%= deduction_detail.deduction.amount %>
+          <%= deduction_detail.deduction.name %> | <%= number_to_currency(deduction_detail.deduction.amount) %>
        <% else %>
          <%= deduction_detail.deduction.name %> | <%= deduction_detail.percentage %>%
        <% end %>
@@ -20,4 +20,4 @@
   <% end %>
 </ul>
 
-<h4>Total Deductions: <%= total_deductions %> </h4>
+<h4>Total Deductions: <%= number_to_currency(total_deductions) %> </h4>
