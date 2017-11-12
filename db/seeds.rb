@@ -7,10 +7,10 @@ Deduction.create(name: "401k", is_percentage: true, is_flat: false, amount: nil)
 Deduction.create(name: "Stock Options", is_percentage: true, is_flat: false, amount:nil)
 
 #email | password_digest | first_name | last_name | admin | salary | setup_complete
-User.create(email: "Tom@flatiron.com", password_digest: "passw0rd", first_name: "Tom", last_name: "Smith", admin: false, salary: 50000, setup_complete: true)
-User.create(email: "Penelope@flatiron.com", password_digest: "passw0rd", first_name: "Penelope", last_name: "Garcia", admin: true, salary: 70000, setup_complete: true)
-User.create(email: "Issac@flatiron.com", password_digest: "passw0rd", first_name: "Issac", last_name: "Martin", admin: false, salary: 45000, setup_complete: true)
-User.create(email: "Abigail@flatiron.com", password_digest: "passw0rd", first_name: "Abigail", last_name: "Walker", admin: false, salary: nil, setup_complete: false)
+User.create(email: "Tom@flatiron.com", password: "passw0rd", first_name: "Tom", last_name: "Smith", admin: false, salary: 50000, setup_complete: true)
+User.create(email: "Penelope@flatiron.com", password: "passw0rd", first_name: "Penelope", last_name: "Garcia", admin: true, salary: 70000, setup_complete: true)
+User.create(email: "Issac@flatiron.com", password: "passw0rd", first_name: "Issac", last_name: "Martin", admin: false, salary: 45000, setup_complete: true)
+User.create(email: "Abigail@flatiron.com", password: "passw0rd", first_name: "Abigail", last_name: "Walker", admin: false, salary: nil, setup_complete: false)
 
 #name | relation | user_id
 Dependent.create(name: "Reagan", relation: "Daughter", user_id: 1)
