@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
       User.find_by(id: session[:user_id])
     end
 
-    def total_deductions
-      @user = current_user
+    def total_deductions(user=current_user)
+      @user = User.find_by(id: user)
       total = 0
       @user.deduction_details.each do |ded_det|
         @deduction = Deduction.find(ded_det.deduction_id)

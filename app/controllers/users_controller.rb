@@ -32,8 +32,8 @@ class UsersController < ApplicationController
 
   def index
     @user = User.find(current_user.id)
-    if @user.is_admin?
-      @users = Users.all
+    if @user.admin
+      @users = User.all
     else
       redirect_to user_path(@user)
     end
@@ -65,6 +65,12 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     if !@user.setup_complete?
       redirect_to new_user_path
+    else
+      if !params[:id].nil? and params[:id] != 'index' and @user.admin?
+        if User.find(params[:id])
+          @user = User.find(params[:id])
+        end
+      end
     end
   end
 
