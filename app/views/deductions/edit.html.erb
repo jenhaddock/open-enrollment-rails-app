@@ -1,12 +1,2 @@
-<%= form_for @deductions do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-<%= f.radio_button_tag(:type, "Flat") %>
-<%= f.label_tag(:is_flat, "Flat") %>
-<%= f.label :amount %>
-<%= f.text_field :amount %><br>
-<%= f.radio_button_tag(:type, "Percentage") %>
-<%= f.label_tag(:is_percentage, "Percentage")%><br>
-
-<%= f.submit %>
-<% end %>
+<h1>Edit Deduction</h1>
+<%= render "form" %>

@@ -1,0 +1,5 @@
+<h1>Select a Deduction to edit or <%= link_to('Add a Deduction', new_deduction_path) %></h1>
+
+<% @deductions.each do |deduction| %>
+  <%= link_to deduction.name, edit_deduction_path(deduction.id)%><br>
+<% end %>

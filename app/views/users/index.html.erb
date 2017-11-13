@@ -1,4 +1,4 @@
-<h1>Flatiron Employee Listing</h1>
+<h3>Flatiron Employee Listing</h3>
 
 <% @users.each do |user| %>
   <%= link_to user.email, user_path(user.id)%> | Total Deductions: <%= number_to_currency(total_deductions(user.id)) %><br>
