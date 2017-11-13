@@ -17,8 +17,13 @@ class DependentsController < ApplicationController
   def index
   end
 
+  def destroy
+    Dependent.find(params[:id]).delete
+    render 'index'
+  end
+
   private
     def dependent_params
-      params.require(:dependent).permit(:name, :relation)
+      params.require(:dependent).permit(:name, :relation, :user_id)
     end
 end

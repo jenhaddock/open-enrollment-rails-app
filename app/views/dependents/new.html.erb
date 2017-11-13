@@ -1,0 +1,10 @@
+<h3> New Dependent </h3>
+<%= form_for ([:user, @dependent]) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :relation %>
+<%= f.text_field :relation %><br><br>
+<input id="hidden" type="hidden" name="dependent[user_id]" value="<%=current_user.id%>">
+
+<%= f.submit %>
+<% end %>
