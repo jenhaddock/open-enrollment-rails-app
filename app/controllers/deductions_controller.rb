@@ -1,25 +1,41 @@
 class DeductionsController < ApplicationController
 
   def new
-    @deduction = Deduction.new
+    if current_user.admin?
+      @deduction = Deduction.new
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def index
-    @deductions = Deduction.all
+    if current_user.admin?
+      @deductions = Deduction.all
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
-    @deduction = Deduction.new(deduction_params)
-    if @deduction.save
-      @deductions = Deduction.all
-      render 'index'
+    if current_user.admin?
+      @deduction = Deduction.new(deduction_params)
+      if @deduction.save
+        @deductions = Deduction.all
+        render 'index'
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to user_path(current_user)
     end
   end
 
   def edit
-    @deduction = Deduction.find(params[:id])
+    if current_user.admin?
+      @deduction = Deduction.find(params[:id])
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
