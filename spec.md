@@ -9,7 +9,7 @@ Specs:
 
  [x]Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients) (User has many deductions through deduction_details)
 
-[x]The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity) (Percentage field in deduction_details)
+ [x]The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity) (Percentage field in deduction_details)
 
  Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
@@ -33,10 +33,10 @@ Specs:
 
 Confirm:
 
- The application is pretty DRY
+ [x]The application is pretty DRY
 
- Limited logic in controllers
+ [x]Limited logic in controllers
 
- Views use helper methods if appropriate
+ [x]Views use helper methods if appropriate
 
- Views use partials if appropriate
+ [x]Views use partials if appropriate

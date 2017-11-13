@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :deductions
 
+  get '/dependents/:id/destroy', to: 'dependents#destroy'
+
 end
