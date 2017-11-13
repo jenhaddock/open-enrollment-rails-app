@@ -5,20 +5,31 @@ class DeductionsController < ApplicationController
   end
 
   def index
-    binding.pry
     @deductions = Deduction.all
   end
 
   def create
     @deduction = Deduction.new(deduction_params)
     if @deduction.save
-      redirect_to 'index'
+      @deductions = Deduction.all
+      render 'index'
     else
       render 'new'
     end
   end
 
   def edit
+    @deduction = Deduction.find(params[:id])
+  end
+
+  def update
+    @deduction = Deduction.find(params[:id])
+    if @deduction.update(deduction_params)
+      @deductions = Deduction.all
+      render 'index'
+    else
+      render 'edit'
+    end
   end
 
  private
