@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   get '/signup' => 'sessions#new'
   post '/signup' => 'sessions#create'
+  post '/deduction_details' => 'deduction_details#update'
 
   resources :deductions
 
