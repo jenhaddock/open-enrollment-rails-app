@@ -1,0 +1,20 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<h3> 2017 Deductions </h3>
+
+<div>
+  <% Deduction.all.each_with_index do |deduction, index| %>
+    <input type="checkbox" name="[<%= index %>][deduction_id]" id="<%= deduction.id %>" value="<%= deduction.name %>"<%= 'checked' if @deduction_details.exists?(deduction_id: deduction.id) %>><%= deduction.name %></input>
+    <input id="hidden" type="hidden" name="[<%= index %>][deduction_id]" value="<%=deduction.id%>"/>
+    <% if deduction.is_percentage? %> | Percentage
+      <input type="text" name="[<%= index %>][percentage]" </input>
+    <% end %><br>
+  <% end %>
+</div>
+
+<br>
+<%= submit_tag "Update Deductions" %>

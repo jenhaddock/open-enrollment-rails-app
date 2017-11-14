@@ -35,7 +35,7 @@
         <%= dd.check_box :id %>
         <%= dd.label :id, deduction.name %>
         <input id="hidden" type="hidden" name="user[deduction_details_attributes][<%= index %>][deduction_id]" value="<%=deduction.id%>"/>
-        <% if deduction.is_percentage? %>
+        <% if deduction.is_percentage? %> |
           <%= dd.label :percentage %>
           <%= dd.text_field :percentage %>
         <% end %><br>
