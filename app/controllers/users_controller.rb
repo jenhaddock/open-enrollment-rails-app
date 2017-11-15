@@ -74,6 +74,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def summary
+  end
+
   def require_login
     redirect_to '/' unless session.include? :user_id
   end

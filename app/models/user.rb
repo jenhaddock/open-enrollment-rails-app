@@ -12,6 +12,14 @@ class User < ApplicationRecord
 
   after_initialize :default_values
 
+  def self.grand_total
+    total = 0
+    User.all.each do |user|
+      total += total_deductions(user)
+    end
+    total
+  end
+
   private
     def default_values
       self.admin ||= false
