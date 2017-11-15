@@ -7,13 +7,13 @@
 <h3> 2017 Deductions </h3>
 
 <%= form_tag("/deduction_details") do %>
-  <% Deduction.all.each_with_index do |deduction, index| %>
-    <input type="checkbox" name="deduction_details[<%= index %>][deduction_id]" id="<%= deduction.id %>" value="<%= deduction.name %>"<%= 'checked' if @deduction_details.exists?(deduction_id: deduction.id) %>><%= deduction.name %></input>
+  <% Deduction.all.each_with_index do |deduction| %>
+    <input type="checkbox" name="deduction_details[<%= deduction.id %>][deduction_id]" id="<%= deduction.id %>" value="<%= deduction.id %>"<%= 'checked' if @deduction_details.exists?(deduction_id: deduction.id) %>><%= deduction.name %></input>
     <% if deduction.is_percentage? %> | Percentage
       <% if @deduction_details.exists?(deduction_id: deduction.id) %>
-        <input type="text" name="deduction_details[<%= index %>][percentage]" value="<%= @deduction_details.find_by(deduction_id: deduction.id).percentage %>" </input>
+        <input type="text" name="deduction_details[<%= deduction.id %>][percentage]" value="<%= @deduction_details.find_by(deduction_id: deduction.id).percentage %>" </input>
       <% else %>
-        <input type="text" name="deduction_details[<%= index %>][percentage]" </input>
+        <input type="text" name="deduction_details[<%= deduction.id %>][percentage]" </input>
       <% end %>
     <% end %><br>
   <% end %>

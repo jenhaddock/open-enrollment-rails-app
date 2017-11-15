@@ -15,7 +15,7 @@ Specs:
 
  Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)(deductions/deduction_summary)
 
- Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
+ [x]Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item) (user -> dependents and deductions)
 
  [x]Include signup (how e.g. Devise)(manually created using password_digest)
 
@@ -29,7 +29,7 @@ Specs:
 
  [x]Include nested resource "new" form (URL e.g. recipes/1/ingredients)(users/1/dependents)
 
- Include form display of validation errors (form URL e.g. /recipes/new)
+ Include form display of validation errors (form URL e.g. /recipes/new)(Deductions cannot be greater than salary)
 
 Confirm:
 
