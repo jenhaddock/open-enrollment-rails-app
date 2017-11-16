@@ -12,10 +12,15 @@ class User < ApplicationRecord
 
   after_initialize :default_values
 
-  def grand_total
+  def self.grand_total
     total = 0
-    User.all.each do |user|
-      total += total_deductions(user)
+    DeductionDetail.all.each do |dd|
+      @deduction = Deduction.find(dd.deduction_id)
+      if @deduction.is_flat?
+        total += @deduction.amount
+      else
+        total += (User.find(dd.user_id).salary * dd.percentage * 0.01)
+      end
     end
     total
   end
