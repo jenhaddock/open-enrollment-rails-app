@@ -15,7 +15,11 @@ class DeductionDetailsController < ApplicationController
         end
       end
     end
-    redirect_to user_path(current_user)
+    if total_deductions > current_user.salary
+      redirect_to user_deduction_details_path(current_user.id), notice: "Deductions cannot be greater than salary." and return
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   private

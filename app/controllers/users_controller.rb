@@ -55,7 +55,13 @@ class UsersController < ApplicationController
                                   :percentage => temp_percentage)
         end
       end
-      redirect_to user_path(@user)
+      if total_deductions > current_user.salary
+        @user.deduction_details.delete_all
+        @user.update(setup_complete: false)
+        redirect_to new_user_path, notice: "Deductions cannot be greater than salary." and return
+      else
+        redirect_to user_path(@user)
+      end
     else
       redirect_to new_user_path
     end
