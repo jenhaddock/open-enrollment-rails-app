@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(current_user.id)
     @user.update(user_params)
-    @user.deduction_details.delete_all
+    @user.deduction_details.destroy_all
     if @user.save
       params[:user][:deduction_details_attributes].each do |detail|
         if params[:user][:deduction_details_attributes][detail.to_s][:id] == "1"
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
         end
       end
       if total_deductions > current_user.salary
-        @user.deduction_details.delete_all
+        @user.deduction_details.destroy_all
         @user.update(setup_complete: false)
         redirect_to new_user_path, notice: "Deductions cannot be greater than salary." and return
       else
