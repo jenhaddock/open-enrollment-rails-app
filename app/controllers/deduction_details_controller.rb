@@ -16,6 +16,7 @@ class DeductionDetailsController < ApplicationController
       end
     end
     if total_deductions > current_user.salary
+      current_user.deduction_details.delete_all
       redirect_to user_deduction_details_path(current_user.id), notice: "Deductions cannot be greater than salary." and return
     else
       redirect_to user_path(current_user)
