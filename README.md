@@ -1,24 +1,19 @@
-# README
+# Open Enrollment Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app used to allow users to register for and manage payroll deductions.  
 
-Things you may want to cover:
+Installation instructions
 
-* Ruby version
+1. Fork and Clone repository.
+2. Run rake db:migrate.
+3. Run rake db:seed.
+4. Start the program with rails s.
+5. Access the program via localhost:3000.
 
-* System dependencies
+Contributing
 
-* Configuration
+Bug reports and pull requests are welcome on GitHub at https://github.com/jenhaddock/open-enrollment-rails-app.
 
-* Database creation
+License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the MIT License.
