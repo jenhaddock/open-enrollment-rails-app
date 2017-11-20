@@ -7,7 +7,7 @@
       <% end %>
       <% if current_user.admin? %>
         | <%= link_to('User Index', users_path) %>
-        | <%= link_to('Add/Edit Deduction',deductions_path) %>
+        | <%= link_to('Add/Edit Deduction Codes',deductions_path) %>
       <% end %>
     <% else %>
       <a href="/signin">Sign In</a> | <a href="/signup">Sign Up</a> | <%= link_to('Log in with Facebook', '/auth/facebook') %>
