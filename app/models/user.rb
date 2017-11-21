@@ -12,6 +12,14 @@ class User < ApplicationRecord
 
   after_initialize :default_values
 
+  def dependents_attributes=(dependents_attributes)
+    dependents_attributes.values.each do |dependent_attribute|
+      if !dependent_attribute[:name] .empty?
+        self.dependents.build(dependent_attribute)
+      end
+    end
+  end
+
   def self.grand_total
     total = 0
     DeductionDetail.all.each do |dd|
