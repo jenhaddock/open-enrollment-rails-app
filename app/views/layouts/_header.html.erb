@@ -6,7 +6,7 @@
         | <%= link_to('Edit Dependents', user_dependents_path(current_user.id)) %>
       <% end %>
       <% if current_user.admin? %>
-        | <%= link_to('User Index', users_path) %>
+        | <%= link_to('User Index', users_path), :class => "user_index" %>
         | <%= link_to('Add/Edit Deduction Codes',deductions_path) %>
       <% end %>
     <% else %>
