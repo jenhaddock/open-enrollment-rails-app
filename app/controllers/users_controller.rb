@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     if @user.admin
       @users = User.all
+      render 'users/index', :layout => false
     else
       redirect_to user_path(@user)
     end
