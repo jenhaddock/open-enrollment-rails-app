@@ -33,8 +33,7 @@ class UsersController < ApplicationController
   def index
     @user = User.find(current_user.id)
     if @user.admin
-  #    @users = User.all
-      render :layout => false
+      @users = User.all
     else
       redirect_to user_path(@user)
     end

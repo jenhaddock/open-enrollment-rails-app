@@ -1,8 +1,7 @@
-<%= render 'layouts/header' %>
-
 <h3>Flatiron Employee Listing</h3>
 
 <div class="users">
-  <ol>
-  </ol>
+  <% @users.each do |user| %>
+    <%= link_to user.email, user_path(user.id)%> | Total Deductions: <%= number_to_currency(total_deductions(user.id)) %><br>
+  <% end %>
 </div>
