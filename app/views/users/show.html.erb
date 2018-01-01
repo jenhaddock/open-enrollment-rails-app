@@ -1,7 +1,7 @@
 <h1> <%= @user.first_name %>'s Yearly Deductions </h1>
 
-<h3> Deductions </h3>
-<div class="user_deductions">
+<p>
+  <%= link_to 'Show Deductions', user_deduction_details_path(@user), :class => "user_deductions" %>
 <!--
   <ul>
     <% @user.deduction_details.each do |deduction_detail| %>
@@ -15,10 +15,10 @@
     <% end%>
   </ul>
 -->
-</div>
+</p>
 
-<h3> Dependents </h3>
-<div class="user_dependents">
+<p>
+  <%= link_to 'Show Dependents', user_dependents_path(@user), :class => "user_dependents" %>
 <!--
   <ul>
     <% @user.dependents.each do |dependent| %>
@@ -26,7 +26,7 @@
     <% end %>
   </ul>
 -->
-</div>
+</p>
 
 <h4>Total Deductions: <%= number_to_currency(total_deductions) %> </h4>
 
