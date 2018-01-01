@@ -1,11 +1,12 @@
 $(function(){
   $("a.user_deductions").on("click", function(e){
-    $.ajax({
-      method: "GET",
-      url: this.href
-    }).done(function(response){
-      $("div.deductions").html(response)
-    });
+    $.get(this.href).success(function(json){
+      var $ul = $("div.deductions ul")
+      $ul.html("")
+      json.forEach(function(deduction_details){
+        
+      })
+    })
     e.preventDefault();
   })
 })
