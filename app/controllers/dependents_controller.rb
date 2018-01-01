@@ -15,6 +15,8 @@ class DependentsController < ApplicationController
   end
 
   def index
+    @dependents = User.find(params[:user_id]).dependents
+    render :json => @dependents
   end
 
   def destroy
