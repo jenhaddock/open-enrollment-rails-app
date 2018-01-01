@@ -2,6 +2,7 @@
 
 <h3> Deductions </h3>
 <div class="user_deductions">
+<!--
   <ul>
     <% @user.deduction_details.each do |deduction_detail| %>
        <li>
@@ -13,15 +14,18 @@
        </li>
     <% end%>
   </ul>
+-->
 </div>
 
 <h3> Dependents </h3>
 <div class="user_dependents">
+<!--
   <ul>
     <% @user.dependents.each do |dependent| %>
       <li><%= dependent.name %> | <%= dependent.relation %></li>
     <% end %>
   </ul>
+-->
 </div>
 
 <h4>Total Deductions: <%= number_to_currency(total_deductions) %> </h4>
