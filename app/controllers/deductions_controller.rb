@@ -11,14 +11,10 @@ class DeductionsController < ApplicationController
   def index
     if current_user.admin?
       @deductions = Deduction.all
+      render :json => @deductions
     else
       redirect_to user_path(current_user)
     end
-  end
-
-  def show
-    @deduction = Deduction.find(params[:id])
-    render :json => @deduction
   end
 
   def create

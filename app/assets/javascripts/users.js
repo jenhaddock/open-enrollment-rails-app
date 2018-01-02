@@ -1,3 +1,13 @@
+const deductionCodeObj = {};
+
+$(function(){
+  $.get('deductions').success(function(json){
+    json.forEach(function(deduction_code){
+      deductionCodeObj[deduction_code.id] = deduction_code
+    })
+  })
+})
+
 $(function(){
   $("a.user_deductions").on("click", function(e){
     $.get(this.href).success(function(json){
@@ -13,21 +23,15 @@ $(function(){
   })
 })
 
-function Deduction(deduction){
-  debugger
-  $.get(`deductions/${deduction.deduction_id}`).success(function(response){
-    debugger
-    this.name = response.name
-    this.is_percentage = response.is_percentage
-    this.is_flat = response.is_flat
-    this.amount = response.amount
-  })
-  this.id = deduction.id
-  this.percentage = deduction.percentage
+function Deduction(deduction_details){
+  this.deduction_id = deduction_details.deduction_id
+  this.user_id = deduction_details.user_id
+  this.percentage = deduction_details.percentage
 }
 
 Deduction.prototype.formatDeduction = function() {
-  let deductionHTML = `<li> ${this.name} </li>`
+  var dedCode = deductionCodeObj[this.deduction_id]
+  let deductionHTML = `<li> ${this.deduction_id} | ${dedCode.name} </li>`
   return deductionHTML
 }
 
