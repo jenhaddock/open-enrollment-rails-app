@@ -14,20 +14,20 @@ $(function(){
 })
 
 function Deduction(deduction){
-  $.get(`deduction/${deduction.deduction_id}`).success(function(json){
-    json.forEach(function(deduction_code){
-      this.name = deduction_code.name
-      this.is_percentage = deduction_code.is_percentage
-      this.is_flat = deduction_code.is_flat
-      this.amount = deduction_code.amount
-    })
+  debugger
+  $.get(`deductions/${deduction.deduction_id}`).success(function(response){
+    debugger
+    this.name = response.name
+    this.is_percentage = response.is_percentage
+    this.is_flat = response.is_flat
+    this.amount = response.amount
   })
   this.id = deduction.id
   this.percentage = deduction.percentage
 }
 
 Deduction.prototype.formatDeduction = function() {
-  let deductionHTML = ``
+  let deductionHTML = `<li> ${this.name} </li>`
   return deductionHTML
 }
 

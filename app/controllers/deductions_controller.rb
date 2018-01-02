@@ -16,6 +16,11 @@ class DeductionsController < ApplicationController
     end
   end
 
+  def show
+    @deduction = Deduction.find(params[:id])
+    render :json => @deduction
+  end
+
   def create
     if current_user.admin?
       @deduction = Deduction.new(deduction_params)
