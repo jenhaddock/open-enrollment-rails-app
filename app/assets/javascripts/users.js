@@ -3,7 +3,7 @@ const deductionCodeObj = {};
 $(function(){
   $.get('deductions').success(function(json){
     json.forEach(function(deduction_code){
-      deductionCodeObj[deduction_code.id] = deduction_code
+      deductionCodeObj[deduction_code.id] = deduction_code;
     })
   })
 })
@@ -32,11 +32,12 @@ function Deduction(deduction_details){
 Deduction.prototype.formatDeduction = function() {
   var dedCode = deductionCodeObj[this.deduction_id]
   if (dedCode.is_flat === true){
-    let deductionHTML = `<li> ${dedCode.name} | ${dedCode.amount}  </li>`
+  //  let flatDeductionHTML = `<li> ${dedCode.name} | ${dedCode.amount}  </li>`
+  //  return flatDeductionHTML
   } else {
-    let deductionHTML = `<li> ${dedCode.name} | ${this.percentage} </li>`
+  //  let percentDeductionHTML = `<li> ${dedCode.name} | ${this.percentage} </li>`
+  //  return percentDeductionHTML
   }
-  return deductionHTML
 }
 
 $(function(){
