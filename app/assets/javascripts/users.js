@@ -32,11 +32,11 @@ function Deduction(deduction_details){
 Deduction.prototype.formatDeduction = function() {
   var dedCode = deductionCodeObj[this.deduction_id]
   if (dedCode.is_flat === true){
-  //  let flatDeductionHTML = `<li> ${dedCode.name} | ${dedCode.amount}  </li>`
-  //  return flatDeductionHTML
+    let flatDeductionHTML = `<li> ${dedCode.name} | $${dedCode.amount}  </li>`
+    return flatDeductionHTML
   } else {
-  //  let percentDeductionHTML = `<li> ${dedCode.name} | ${this.percentage} </li>`
-  //  return percentDeductionHTML
+    let percentDeductionHTML = `<li> ${dedCode.name} | ${this.percentage}% </li>`
+    return percentDeductionHTML
   }
 }
 
