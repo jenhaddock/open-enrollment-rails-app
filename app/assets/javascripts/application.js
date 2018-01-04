@@ -17,3 +17,4 @@
 //= require users
 //= require deduction_details
 //= require dependents
+//= require deductions
