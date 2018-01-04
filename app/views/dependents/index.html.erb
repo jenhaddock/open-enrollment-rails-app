@@ -1,11 +1,8 @@
 <h1><%= current_user.first_name %>'s Dependents<h1>
 
-<h3><%= link_to('Add a Dependent', new_user_dependent_path(current_user.id)) %></h3>
+<h3><%= link_to('Add a Dependent', new_user_dependent_path(current_user.id)) %></h3
 
 <p>
-  <%= link_to 'Show Dependents', user_dependents_path(@user), :class => "user_dependents" %>
-</p>
-
 <div class="dependents">
   <ul>
   </ul>
