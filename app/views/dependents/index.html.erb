@@ -2,6 +2,11 @@
 
 <h3><%= link_to('Add a Dependent', new_user_dependent_path(current_user.id)) %></h3>
 
-<% Dependent.where(user_id: current_user.id).find_each do |dependent| %>
+<div class="dependents">
+  <ul>
+  </ul>
+</div>
+
+<!--<% Dependent.where(user_id: current_user.id).find_each do |dependent| %>
   <%= dependent.name %> | <%= dependent.relation %> | <a href="/dependents/<%=dependent.id%>/destroy">Remove</a><br>
-<% end %>
+<% end %> -->
