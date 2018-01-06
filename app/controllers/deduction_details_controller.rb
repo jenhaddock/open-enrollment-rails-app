@@ -2,7 +2,10 @@ class DeductionDetailsController < ApplicationController
 
   def index
     @deduction_details = current_user.deduction_details
-    render :json => @deduction_details
+    respond_to do |f|
+      f.json {render json: @deduction_details}
+      f.html {render :index}
+    end
   end
 
   def update
