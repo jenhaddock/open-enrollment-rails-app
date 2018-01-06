@@ -1,6 +1,6 @@
 const deductionCodeObj = {};
 
-$(function(){
+$(function (){
   $.get('deductions').success(function(json){
     json.forEach(function(deduction_code){
       deductionCodeObj[deduction_code.id] = deduction_code;

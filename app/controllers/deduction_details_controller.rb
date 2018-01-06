@@ -1,7 +1,7 @@
 class DeductionDetailsController < ApplicationController
 
   def index
-    @deduction_details = current_user.deduction_details
+    @deduction_details = User.find(params[:user_id]).deduction_details
     respond_to do |f|
       f.json {render json: @deduction_details}
       f.html {render :index}
@@ -28,6 +28,6 @@ class DeductionDetailsController < ApplicationController
 
   private
     def deduction_detail_params
-      params.require(:deduction_detail).permit(:id, :details => [:id, :percentage])
+      params.require(:deduction_detail).permit(:user_id, :id, :details => [:id, :percentage])
     end
 end

@@ -5,7 +5,10 @@ class UsersController < ApplicationController
     if current_user
       @user = User.find(current_user.id)
       if @user.setup_complete?
-        render 'show'
+        respond_to do |f|
+          f.json {render json: @user}
+          f.html {render :show}
+        end
       else
         init_new
         render 'new'
@@ -68,7 +71,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if !@user.setup_complete?
       redirect_to new_user_path
     else
