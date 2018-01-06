@@ -94,7 +94,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete,
+    params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete, :id,
                                  :dependents_attributes => [:name, :relation],
                                  :deduction_detail_attributes => [:id, :details => [:id, :percentage]])
   end
