@@ -3,7 +3,7 @@
       Signed in as <%= current_user.email %> | <a href="/signout">Sign Out</a>
       <% if current_user.setup_complete? %>
         | <%= link_to('Edit Deductions', user_deduction_details_path(current_user.id)) %>
-<!--        | <%= link_to('Edit Dependents', user_dependents_path(current_user.id)) %> -->
+        | <%= link_to('Edit Dependents', user_dependents_path(current_user.id)) %> 
       <% end %>
       <% if current_user.admin? %>
         | <%= link_to('User Index', users_path, :class => "user_index") %>
