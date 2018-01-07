@@ -16,6 +16,9 @@ User.create(email: "Abigail@flatiron.com", password: "passw0rd", first_name: "Ab
 Dependent.create(name: "Reagan", relation: "Daughter", user_id: 1)
 Dependent.create(name: "Riley", relation: "Daughter", user_id: 2)
 Dependent.create(name: "Isiah", relation: "Son", user_id: 2)
+Dependent.create(name: "Parker", relation: "Son", user_id: 3)
+Dependent.create(name: "Emily", relation: "Daughter", user_id: 3)
+Dependent.create(name: "Roxy", relation: "Daughter", user_id: 4)
 
 # user_id | deduction_id | percentage
 DeductionDetail.create(user_id: 1, deduction_id: 1, percentage: nil)
@@ -24,3 +27,5 @@ DeductionDetail.create(user_id: 1, deduction_id: 5, percentage: 10)
 DeductionDetail.create(user_id: 2, deduction_id: 1, percentage: nil)
 DeductionDetail.create(user_id: 2, deduction_id: 2, percentage: nil)
 DeductionDetail.create(user_id: 2, deduction_id: 4, percentage: 3)
+DeductionDetail.create(user_id: 3, deduction_id: 1, percentage: nil)
+DeductionDetail.create(user_id: 4, deduction_id: 2, percentage: nil)
