@@ -72,7 +72,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if !@user.setup_complete?
+    if !@user.setup_complete? && @user.id == current_user.id
       redirect_to new_user_path
     else
       if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
