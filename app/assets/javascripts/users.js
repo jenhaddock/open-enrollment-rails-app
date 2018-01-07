@@ -71,8 +71,7 @@ $(function(){
   $(".js-next").on("click", function(e) {
     e.preventDefault()
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/users/" + nextId + ".json", function(nextUser){
-      debugger
+    $.get("/users/" + nextId + ".json", function(user){
       $(".userName").text(user.first_name + '\'s Yearly Deductions');
       $(".user_dependents").attr("href", "/users/" + nextId + "/dependents")
       $(".user_deductions").attr("href", "/users/" + nextId + "/deduction_details")
