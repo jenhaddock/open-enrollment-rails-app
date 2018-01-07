@@ -72,8 +72,16 @@ $(function(){
     e.preventDefault()
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/users/" + nextId + ".json", function(user){
-      $(".userName").text(user.first_name)
+      $(".userName").text(user.first_name + '\'s Yearly Deductions');
+      $(".user_dependents").attr("href", "/users/" + nextId + "/dependents")
+      $(".user_deductions").attr("href", "/users/" + nextId + "/deduction_details")
+    //  load_deduction_total(user.deduction_details);
       $(".js-next").attr("data-id", user.id);
     })
   })
 })
+
+//function load_deduction_total(deduction_details){
+//  let deductiontotal = 0;
+//  debugger
+//}

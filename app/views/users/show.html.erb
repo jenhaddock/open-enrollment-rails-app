@@ -18,7 +18,7 @@
   </ul>
 </div>
 
-<h4>Total Deductions: <%= number_to_currency(total_deductions) %> </h4>
+<h4 class="totalDeductions">Total Deductions: <%= number_to_currency(total_deductions) %> </h4>
 
 <% if current_user.admin? %>
   <a href="#" class="js-next" data-id="<%=@user.id%>">Next User</a>
