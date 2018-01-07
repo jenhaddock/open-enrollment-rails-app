@@ -79,7 +79,7 @@ $(function(){
       $ul.html("")
       var $ul = $("div.dependents ul")
       $ul.html("")
-    //  load_deduction_total(user.deduction_details);
+  //    $(".totalDeductions").data(nextId);
       $(".js-next").attr("data-id", user.id);
     })
   })
