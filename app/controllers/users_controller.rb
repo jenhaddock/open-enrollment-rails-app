@@ -19,7 +19,10 @@ class UsersController < ApplicationController
   def new
     @user = User.find(current_user.id)
     if @user.setup_complete?
-      render 'show'
+      respond_to do |f|
+        f.json {render json: @user}
+        f.html {render :show}
+      end
     else
       init_new
     end
@@ -71,15 +74,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    if !@user.setup_complete? && @user.id == current_user.id
-      redirect_to new_user_path
-    else
-      if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
-        if User.find(params[:id])
-          respond_to do |f|
-            f.json {render json: @user}
-            f.html {render :show}
+    if params[:id] != 'deductions'
+      @user = User.find(params[:id])
+      if !@user.setup_complete? && @user.id == current_user.id
+        redirect_to new_user_path
+      else
+        if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
+          if User.find(params[:id])
+            respond_to do |f|
+              f.json {render json: @user}
+              f.html {render :show}
+            end
           end
         end
       end

@@ -10,6 +10,7 @@ $(function (){
 
 $(function(){
   $("a.user_deductions").on("click", function(e){
+    debugger
     $.get(this.href).success(function(json){
       var $ul = $("div.deductions ul")
       $ul.html("")
@@ -42,6 +43,7 @@ Deduction.prototype.formatDeduction = function() {
 
 $(function(){
   $("a.user_dependents").on("click", function(e){
+    debugger
     $.get(this.href).success(function(json){
       var $ul = $("div.dependents ul")
       $ul.html("")
