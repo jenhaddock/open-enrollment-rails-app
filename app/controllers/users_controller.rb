@@ -77,7 +77,6 @@ class UsersController < ApplicationController
     else
       if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
         if User.find(params[:id])
-          @user = User.find(params[:id])
           respond_to do |f|
             f.json {render json: @user}
             f.html {render :show}
