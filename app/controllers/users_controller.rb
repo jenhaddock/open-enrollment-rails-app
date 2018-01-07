@@ -75,7 +75,7 @@ class UsersController < ApplicationController
     if !@user.setup_complete?
       redirect_to new_user_path
     else
-      if !params[:id].nil? and params[:id] != 'index' and @user.admin?
+      if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
         if User.find(params[:id])
           @user = User.find(params[:id])
           respond_to do |f|

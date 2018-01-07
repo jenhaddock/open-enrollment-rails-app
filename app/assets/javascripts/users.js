@@ -66,3 +66,14 @@ Dependent.prototype.formatDependent = function() {
   let dependentHTML = `<li> ${this.name} | ${this.relation} </li>`
   return dependentHTML
 }
+
+$(function(){
+  $(".js-next").on("click", function(e) {
+    e.preventDefault()
+    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/users/" + nextId + ".json", function(user){
+      $(".userName").text(user.first_name)
+      $(".js-next").attr("data-id", user.id);
+    })
+  })
+})
