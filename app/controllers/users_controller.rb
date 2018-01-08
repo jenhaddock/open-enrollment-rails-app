@@ -40,6 +40,10 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     if @user.admin
       @users = User.all
+      respond_to do |f|
+        f.json {render json: @users}
+        f.html {render :index}
+      end
     else
       redirect_to user_path(@user)
     end
@@ -74,17 +78,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id] != 'deductions'
-      @user = User.find(params[:id])
-      if !@user.setup_complete? && @user.id == current_user.id
-        redirect_to new_user_path
-      else
-        if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
-          if User.find(params[:id])
-            respond_to do |f|
-              f.json {render json: @user}
-              f.html {render :show}
-            end
+    @user = User.find(params[:id])
+    if !@user.setup_complete? && @user.id == current_user.id
+      redirect_to new_user_path
+    else
+      if !params[:id].nil? and params[:id] != 'index' and current_user.admin?
+        if User.find(params[:id])
+          respond_to do |f|
+            f.json {render json: @user}
+            f.html {render :show}
           end
         end
       end
@@ -101,7 +103,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :salary, :admin, :setup_complete, :id,
+    params.require(:user).permit(:id, :first_name, :last_name, :salary, :admin, :setup_complete,
                                  :dependents_attributes => [:name, :relation],
                                  :deduction_detail_attributes => [:id, :details => [:id, :percentage]])
   end
