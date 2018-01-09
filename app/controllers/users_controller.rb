@@ -100,6 +100,11 @@ class UsersController < ApplicationController
     redirect_to '/' unless session.include? :user_id
   end
 
+  def getTotal
+    total = total_deductions(params[:id])
+    render :json => total
+  end
+
   private
 
   def user_params

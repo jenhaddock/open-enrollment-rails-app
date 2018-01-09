@@ -71,6 +71,10 @@ $(function(){
   $(".js-next").on("click", function(e) {
     e.preventDefault()
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    let nextTotal = 0;
+    $.get("/users/" + nextId + "/getTotal.json", function(total){
+      nextTotal = total;
+    })
     $.get("/users/" + nextId + ".json", function(user){
       $(".userName").text(user.first_name + '\'s Yearly Deductions');
       $(".user_dependents").attr("href", "/users/" + nextId + "/dependents")
@@ -79,7 +83,7 @@ $(function(){
       $ul.html("")
       var $ul = $("div.dependents ul")
       $ul.html("")
-  //    $(".totalDeductions").data(nextId);
+      $(".totalDeductions").text("Total Deductions: $" + nextTotal);
       $(".js-next").attr("data-id", user.id);
     })
   })

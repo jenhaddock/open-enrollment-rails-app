@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
   get '/users/summary' => 'users#summary'
+  get '/users/:id/getTotal' => 'users#getTotal'
 
   root to: 'users#homepage'
   resources :users do
