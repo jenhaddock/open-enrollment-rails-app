@@ -88,9 +88,3 @@ $(function(){
     })
   })
 })
-
-
-//function load_deduction_total(deduction_details){
-//  let deductiontotal = 0;
-//  debugger
-//}
