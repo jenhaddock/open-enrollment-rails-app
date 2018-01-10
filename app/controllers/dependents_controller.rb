@@ -7,8 +7,12 @@ class DependentsController < ApplicationController
   def create
     @dependent = Dependent.new(dependent_params)
     if @dependent.save
-      binding.pry
-      redirect_to 'index'
+      @dependents = User.find(params[:user_id]).dependents
+      @dependent = User.find(params[:user_id]).dependents.build
+      respond_to do |f|
+        f.json {render json: @dependents}
+        f.html {render :index}
+      end
     else
       render 'new'
     end
