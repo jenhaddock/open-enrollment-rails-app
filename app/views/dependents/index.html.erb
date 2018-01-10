@@ -2,9 +2,13 @@
 
 <!--<h3><%= link_to('Add a Dependent', new_user_dependent_path(current_user.id)) %></h3>-->
 
+<div class="deductions">
+  <ul>
 <% @dependents.each do |dependent| %>
-  <%= dependent.name %> | <%= dependent.relation %> | <a href="/dependents/<%=dependent.id%>/destroy">Remove</a><br>
+  <li><%= dependent.name %> | <%= dependent.relation %> | <a href="/dependents/<%=dependent.id%>/destroy">Remove</a></li>
 <% end %>
+  </ul>
+</div>
 
 <h4>New Dependent:</h4>
 <%= form_for ([:user, @dependent]) do |f| %>
@@ -14,5 +18,5 @@
 <%= f.text_field :relation %><br><br>
 <input id="hidden" type="hidden" name="dependent[user_id]" value="<%=current_user.id%>">
 
-<%= f.submit %>
+<%= f.submit :class => "newDependent" %>
 <% end %>
