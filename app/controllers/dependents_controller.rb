@@ -7,8 +7,8 @@ class DependentsController < ApplicationController
   def create
     @dependent = Dependent.new(dependent_params)
     if @dependent.save
-      @dependents = Dependent.find(current_user.id)
-      render 'index'
+      binding.pry
+      redirect_to 'index'
     else
       render 'new'
     end
