@@ -9,10 +9,7 @@ class DependentsController < ApplicationController
     if @dependent.save
       @dependents = User.find(params[:user_id]).dependents
       @dependent = User.find(params[:user_id]).dependents.build
-      respond_to do |f|
-        f.json {render json: @dependents}
-        f.html {render :index}
-      end
+      render 'index'
     else
       render 'new'
     end
