@@ -24,13 +24,3 @@ $(function (){
     })
   })
 })
-
-//function userDependent(name, relation){
-//  this.name = name
-//  this.relation = relation
-//}
-
-//Dependent.prototype.formatDependent = function() {
-//  let dependentHTML = `<li> ${this.name} | ${this.relation} </li>`
-//  return dependentHTML
-//}
