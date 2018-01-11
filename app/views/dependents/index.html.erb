@@ -2,7 +2,7 @@
 
 <!--<h3><%= link_to('Add a Dependent', new_user_dependent_path(current_user.id)) %></h3>-->
 
-<div class="deductions">
+<div class="dependents">
   <ul>
 <% @dependents.each do |dependent| %>
   <li><%= dependent.name %> | <%= dependent.relation %> | <a href="/dependents/<%=dependent.id%>/destroy">Remove</a></li>
