@@ -9,14 +9,14 @@ class DeductionsController < ApplicationController
   end
 
   def index
-    if current_user.admin?
+    if current_user
       @deductions = Deduction.all
       respond_to do |f|
         f.json {render json: @deductions}
         f.html {render :index}
       end
     else
-      redirect_to user_path(current_user)
+      redirect_to "/"
     end
   end
 
